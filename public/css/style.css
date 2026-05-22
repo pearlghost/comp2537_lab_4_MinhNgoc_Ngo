@@ -1,0 +1,61 @@
+/* 
+  Inspiration:
+    - Data source: https://pokeapi.co/
+    - Hover overlay idea: CSS-Tricks image overlay technique
+    - Spinner: Bootstrap 5 documentation
+*/
+
+/* Spinner transition */
+#loader {
+  transition: opacity 0.4s ease;
+}
+
+/* Button hover animation */
+#loadMoreBtn {
+  transition: transform 0.2s ease;
+}
+
+#loadMoreBtn:hover {
+  transform: scale(1.05);
+}
+
+/* Card animation (REQUIRED for demo polish) */
+.pokemon-card {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.pokemon-card:hover {
+  transform: scale(1.04);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Image wrapper for hover overlay */
+.pokemon-img-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Stats overlay (hidden by default) */
+.pokemon-stats {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.78);
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Hover reveal stats */
+.pokemon-img-wrapper:hover .pokemon-stats {
+  opacity: 1;
+}
