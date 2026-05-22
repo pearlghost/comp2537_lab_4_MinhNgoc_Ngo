@@ -13,6 +13,12 @@ async function loadPokemon() {
   btn.disabled = true;
 
   const startTime = Date.now();
+  const elapsed = Date.now() - startTime;
+  const minDelay = 900;
+
+  if (elapsed < minDelay) {
+    await new Promise((resolve) => setTimeout(resolve, minDelay - elapsed));
+  }
 
   try {
     const response = await fetch(
@@ -52,13 +58,6 @@ async function loadPokemon() {
     }
 
     offset += limit;
-
-    const elapsed = Date.now() - startTime;
-    const minDelay = 900;
-
-    if (elapsed < minDelay) {
-      await new Promise((resolve) => setTimeout(resolve, minDelay - elapsed));
-    }
   } catch (err) {
     console.error(err);
   } finally {
